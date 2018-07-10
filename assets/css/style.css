@@ -80,7 +80,7 @@ img#ta-logo {
 
 input::placeholder {
   margin-top: 1rem;
-  color: #fff;
+  color: rgb(32, 23, 23);
   font-weight: lighter;
 }
 
