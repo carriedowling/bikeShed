@@ -60,7 +60,6 @@ brand-logo {
 img#ta-logo {
   display: inline-block;
   margin-top: .5rem;
-  max-width: 50%;
 }
 
 #search {
@@ -96,6 +95,9 @@ input::placeholder {
   color: #fff !important;
 }
 
+#ta-logo {
+  height: 50px; 
+}
 
 /*** Media Queries ***/
 
