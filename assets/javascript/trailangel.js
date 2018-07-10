@@ -10,49 +10,36 @@ $(document).ready(function () {
     //         var url = "https://www.zipcodeapi.com/rest/" + zipKey + "/info.json/" + zipcode + "/radians";
     //         console.log(url);
     //
-    //         // var latitude = this.lat;
-    //         // var longitude = this.lng;
-    //
-    //         function generateTrailList() {
-    //             for (var j = 0; j < 10; j++) {
-    //                 // Make AJAX request
-    //                 $.ajax({
-    //                     url: url,
-    //                     method: "GET"
-    //                 });
-    //
-    //                 var newTrail = $("");
-    //                 $("#example1").append(newTrail)
-    //             };
-    //         };
-    //         generateTrailList();
+
     //     } if {
     //
     //     }
     // });
 
 
-    $(".search").keyup("click", function (e) {
-      if (e.which === 13) {
+  $(".search").keyup("click", function (e) {
+    if (e.which === 13) {
 
-        // generates variable for zipcode
-        var zipcode = $(this).val().substring(0, 5);
+      // generates variable for zipcode
+      var zipcode = $(this).val().substring(0, 5);
 
-        var weatherURL = "api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&appid=" + weatherKey;
-        console.log(weatherURL);
+      var weatherURL = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&APPID=" + weatherKey;
+      console.log(weatherURL);
 
-        function getWeatherData () {
+      function getWeatherData () {
 
-          var promise = $.ajax({
-            url: weatherURL,
-            method: "GET"
-          })
+        var promise = $.ajax({
+          url: weatherURL,
+          method: "GET"
+        })
 
-          promise.then(function(response) {
-            $("#buttons-view").text(JSON.stringify(response, null, 2));
-
-            console.log(response);
-        }
+        promise.then(function(response) {
+          $(".weather-content").text(JSON.stringify(response, null, 2));
+          console.log(response);
+        })
       }
+
+      getWeatherData();
     }
+  });
 });
