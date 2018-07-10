@@ -30,84 +30,93 @@
                   <div class="row" id="topbarsearch">
                     <div class="input-field col s6 s12">
                       <i class="material-icons prefix">search</i>
-                      <input type="text" placeholder="Find a Trail" class="white-text" >
+                      <input type="text" placeholder="Find a Trail" class="search white-text" >
                     </div>
                   </div>
                 </div>
               </div>
-            </li>
-            <li><a href="#">About</a></li>
-          </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+        </ul>
 
-          <!-- mobile nav that appears when collapsed past a certain width -->
-          <ul id="nav-mobile" class="sidenav">
-            <li><a href="#">About</a></li>
+        <!-- mobile nav that appears when collapsed past a certain width -->
+        <ul id="nav-mobile" class="sidenav">
+          <li>
+            <a href="#">About</a>
+          </li>
 
-            <li>
-              <div class="center row">
-                <div class="col s12" >
-                  <div class="row" id="topbarsearch">
-                    <div class="input-field col s6 s12">
-                      <i class="material-icons prefix">search</i>
-                      <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete light" >
-                    </div>
+          <li>
+            <div class="center row">
+              <div class="col s12">
+                <div class="row" id="topbarsearch">
+                  <div class="input-field col s6 s12">
+                    <i class="material-icons prefix">search</i>
+                    <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete light">
                   </div>
                 </div>
               </div>
-            </li>
-          </ul>
-          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+          </li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- start main part of body where API queries the data and displays it in divs -->
+  <main>
+    <!-- ALL MAIN BODY CONTENT GOES HERE -->
+    <div class="container">
+
+      <!-- Trail name and quick blurb is generated here -->
+      <div class="row">
+        <div class="col l12">
+          <h5 id="trail-name" class="header">
+            <i class="fas fa-map-signs"></i> Trail Names Populate Here</h5>
+          <p id="trail-overview-blurb">Trail overview populates here</p>
         </div>
-      </nav>
-    </header>
+      </div>
 
-    <!-- start main part of body where API queries the data and displays it in divs -->
-    <main>
-      <!-- ALL MAIN BODY CONTENT GOES HERE -->
-      <div class="container">
+      <!-- this row populates with about the trail information from API -->
+      <div class="row">
+        <div class="col l12">
+          <h5 id="trail-info" class="header">
+            <i class="material-icons">terrain</i> About This Trail</h5>
 
-        <!-- Trail name and quick blurb is generated here -->
-        <div class="row">
-          <div class="col l12">
-            <h5 id="trail-name" class="header"><i class="fas fa-map-signs"></i> Trail Names Populate Here</h5>
-            <p id="trail-overview-blurb">Trail overview populates here</p>
-          </div>
-        </div>
+          <div class="card horizontal">
 
-        <!-- this row populates with about the trail information from API -->
-        <div class="row">
-          <div class="col l12">
-            <h5 id="trail-info" class="header"><i class="material-icons">terrain</i> About This Trail</h5>
-
-            <div class="card horizontal">
-
-              <div class="card-stacked">
-                <div class="card-content">
-                  trail information/history will populate here
-                </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                trail information/history will populate here
               </div>
+            </div>
 
-              <div class="card-image">
-                <img id="trail-feature-image" src="http://via.placeholder.com/300">
-              </div>
+            <div class="card-image">
+              <img id="trail-feature-image" src="http://via.placeholder.com/300">
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- this row populates with the trail map from API -->
-        <div class="row">
-          <div class="col l12 m12">
-            <h5 class="header"><i class="fas fa-map-marker-alt"></i> Trail Map</h5>
+      <!-- this row populates with the trail map from API -->
+      <div class="row">
+        <div class="col l12 m12">
+          <h5 class="header">
+            <i class="fas fa-map-marker-alt"></i> Trail Map</h5>
 
-            <div class="card">
-                <div class="card-content">
-                  trail map will populate here
-                </div>
+          <div class="card">
+            <div class="card-content">
+              trail map will populate here
             </div>
           </div>
         </div>
+      </div>
 
-<<<<<<< Updated upstream
         <!-- this row populates with trail conditions from API -->
         <div class="row">
           <div class="col l12 m12">
@@ -119,42 +128,52 @@
                 </div>
             </div>
           </div>
-=======
       <!-- this row populates with trail conditions from API -->
       <div class="row">
         <div class="col l12 m12">
           <h5 class="header">
             <i class="fas fa-sun"></i> Trail Conditions</h5>
->>>>>>> Stashed changes
         </div>
+      </div>
 
-        <!-- this row is the image carosel that is touch enabled too. all images for the hike will pull into here -->
-        <div class="row">
-          <div class="col l12 m12">
-            <h5 class="header"><i class="fas fa-image"></i> Trail Images</h5>
-            <div class="carousel">
-              <a class="materialboxed"><img class="carousel-item" src="http://via.placeholder.com/350"></a>
-              <a class="materialboxed"><img class="carousel-item" src="http://via.placeholder.com/350"></a>
-              <a class="materialboxed"><img class="carousel-item" src="http://via.placeholder.com/350"></a>
-              <a class="materialboxed"><img class="carousel-item" src="http://via.placeholder.com/350"></a>
-              <a class="materialboxed"><img class="carousel-item" src="http://via.placeholder.com/350"></a>
-            </div>
-          </div>
+    <!-- this row is the image carosel that is touch enabled too. all images for the hike will pull into here -->
+    <div class="row">
+      <div class="col l12 m12">
+        <h5 class="header">
+          <i class="fas fa-image"></i> Trail Images</h5>
+        <div class="carousel">
+          <a class="materialboxed">
+            <img class="carousel-item" src="http://via.placeholder.com/350">
+          </a>
+          <a class="materialboxed">
+            <img class="carousel-item" src="http://via.placeholder.com/350">
+          </a>
+          <a class="materialboxed">
+            <img class="carousel-item" src="http://via.placeholder.com/350">
+          </a>
+          <a class="materialboxed">
+            <img class="carousel-item" src="http://via.placeholder.com/350">
+          </a>
+          <a class="materialboxed">
+            <img class="carousel-item" src="http://via.placeholder.com/350">
+          </a>
         </div>
+      </div>
+    </div>
 
-        <!-- this row populates with Google Maps API showing locations and directions -->
-        <div class="row">
-          <div class="col l12 m12">
-            <h5 class="header"><i class="fas fa-sun"></i> Directions</h5>
+    <!-- this row populates with Google Maps API showing locations and directions -->
+    <div class="row">
+      <div class="col l12 m12">
+        <h5 class="header">
+          <i class="fas fa-sun"></i> Directions</h5>
 
-            <div class="card">
-                <div class="card-content">
-                  <p>this is where Google Maps API for directions will go</p>
-                </div>
-            </div>
+        <div class="card">
+          <div class="card-content">
+            <p>this is where Google Maps API for directions will go</p>
           </div>
         </div>
       </div>
+
     </main>
 
     <br />
@@ -167,46 +186,33 @@
             <h5 class="white-text">Trail Angel</h5>
             <p class="grey-text text-lighten-4">Trail Angel is a dedicated team of developers whose mission is to bring the best hiking information to your fingertips. Collecting and displaying up-to-date trail information, conditions, etc is our mission.</p>
           </div>
+        <div class="col l6 offset-4 m12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li>
+              <a class="white-text" href="#">Home</a>
+            </li>
+            <li>
+              <a class="white-text" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-          <div class="col l6 offset-4 m12">
-            <h5 class="white-text">Links</h5>
-            <ul>
-              <li><a class="white-text" href="#">Home</a></li>
-              <li><a class="white-text" href="#">About</a></li>
-            </ul>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col l12">
+            <p>© 2018 Trail Angel</p>
           </div>
         </div>
       </div>
-
-      <div class="footer-copyright">
-        <div class="container">
-          <div class="row">
-            <div class="col l12">
-              <p>© 2018 Trail Angel</p>
-            </div>
-          </div>
-        </div>
-      </div>
-<<<<<<< Updated upstream
     </footer>
-
     <!--JavaScript at end of body for optimized loading-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="assets/javascript/trailangel.js"></script>
     <script type="text/javascript" src="assets/javascript/init.js"></script>
   </body>
-=======
-    </div>
-  </footer>
-
-  <!--JavaScript at end of body for optimized loading-->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-  <script type="text/javascript" src="assets/javascript/trailangel.js"></script>
-  <script type="text/javascript" src="assets/javascript/init.js"></script>
-</body>
-
->>>>>>> Stashed changes
 </html>

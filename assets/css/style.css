@@ -2,11 +2,11 @@
 
 body {
   max-width: 100%;
-  /* background: url('../../assets/images/mountain-background.png') no-repeat center center fixed;
+  background: url('../../assets/images/background.gif') no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; */
+  background-size: cover;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -37,8 +37,8 @@ footer {
 
 /*** Classes and IDs ***/
 
-.trailangel-green {
-  background-color: #588f00;
+.ta-blue {
+  background-color: #3528a5;
   color: #fff;
 }
 
@@ -101,14 +101,9 @@ input::placeholder {
 
 @media only screen and (max-width: 480px) {
 
-  /* body {
-    max-width: 100%;
-    background: url('../../assets/images/mountain-background.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  } */
+  body {
+    background: none; 
+  }
 
   img#ta-logo {
     margin-top: .6rem;
