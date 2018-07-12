@@ -45,8 +45,9 @@ footer {
 .icon-block {
   padding: 0 15px;
 }
+
 .icon-block .material-icons {
-	font-size: inherit;
+  font-size: inherit;
 }
 
 .carousel .carousel-item {
@@ -60,6 +61,7 @@ brand-logo {
 img#ta-logo {
   display: inline-block;
   margin-top: .5rem;
+  max-width: 50%;
 }
 
 #search {
@@ -70,28 +72,25 @@ img#ta-logo {
 /*** Search Form and Inputs ***/
 
 #topbarsearch .input-field .prefix {
-  width:0rem !important;
+  width: 0rem !important;
 }
 
-#topbarsearch nav ul li:hover, nav ul li.active {
+#topbarsearch nav ul li:hover,
+nav ul li.active {
   background-color: none !important;
-}
-
-.mobilesearch {
-  color: #616161;
 }
 
 input::placeholder {
   margin-top: 1rem;
-  color: #fff;
+  color: rgb(32, 23, 23);
   font-weight: lighter;
 }
 
-.input-field .prefix ~ input,
-.input-field .prefix ~ textarea,
-.input-field .prefix ~ label,
-.input-field .prefix ~ .validate ~ label,
-.input-field .prefix ~ .autocomplete-content {
+.input-field .prefix~input,
+.input-field .prefix~textarea,
+.input-field .prefix~label,
+.input-field .prefix~.validate~label,
+.input-field .prefix~.autocomplete-content {
   margin-left: 1rem !important;
 }
 
@@ -99,28 +98,31 @@ input::placeholder {
   color: #fff !important;
 }
 
-#ta-logo {
-  height: 50px;
-}
-
 /*** Media Queries ***/
 
 @media only screen and (max-width: 480px) {
-
   body {
     background: none;
   }
-
   img#ta-logo {
     margin-top: .6rem;
     margin-left: 6%;
     max-width: 85%;
   }
-
   .carousel {
     padding-left: 20%;
     height: 250px;
     overflow: visible !important;
     max-width: 100%;
   }
+}
+
+.input-field {
+  background-color: #3528a5;
+  height: 50px;
+  border: 0;
+  margin: 0;
+}
+.trailInfoDiv{
+  background-color: beige;
 }
