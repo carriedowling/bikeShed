@@ -26,14 +26,14 @@ $(document).ready(function () {
         var trailDiv = $("<div class='card horizontal'>");
 
         var trailName = trail.name
-        var realName = $("<h5 class='header'>").text(trailName);
+        var realName = $("<h5 class='header'>").html("<i class='material-icons'>terrain</i> " + trailName);
         trailInfo.append(realName);
 
         var info = trail.summary
         var difficulty = trail.difficulty
-        var trailInformation = $("<div class='card-content col l8'><p class='summary-text'>").text(info);
+        var trailInformation = $("<div class='card-content col l8'>").html("<p class='summary-text'>" + info + "</p>");
         trailDiv.append(trailInformation);
-        trailInformation.append("<p class='difficulty'>" + difficulty + "</p>");
+        trailInformation.append("<p class='difficulty'>Difficulty: " + difficulty + "</p>");
 
         var mainImage = trail.imgSmallMed
         var imgShow = $("<div class='card-image col l4'>" + "<img" + " src=" + mainImage + "></div>");
