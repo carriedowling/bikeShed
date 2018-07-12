@@ -23,23 +23,23 @@ $(document).ready(function () {
 
       for (var i = 0; i < response.trails.length; i++) {
         var trail = response.trails[i];
-        var trailDiv = $("<div class='trailInfoDiv'>");
+        var trailDiv = $("<div class='card horizontal'>");
 
         var trailName = trail.name
-        var realName = $("<h2>").text(trailName);
-        trailDiv.append(realName);
+        var realName = $("<h5 class='header'>").text(trailName);
+        trailInfo.append(realName);
 
         var info = trail.summary
-        var trailInformation = $("<p>").text(info);
+        var difficulty = trail.difficulty
+        var trailInformation = $("<div class='card-content col l8'><p class='summary-text'>").text(info);
         trailDiv.append(trailInformation);
+        trailInformation.append("<p class='difficulty'>" + difficulty + "</p>");
 
         var mainImage = trail.imgSmallMed
-        $("<img class='trailImg'>").attr({
-          src: mainImage
-        });
+        var imgShow = $("<div class='card-image col l4'>" + "<img" + " src=" + mainImage + "></div>");
 
-        trailInfo.append(trailDiv)
-
+        trailInfo.append(trailDiv);
+        trailDiv.append(imgShow);
       }
     });
   };
@@ -48,7 +48,7 @@ $(document).ready(function () {
     var zipcode = $(".search").val().substring(0, 5);
     console.log(zipcode);
     var weatherKey = "3826993a4c01b00ab0b1726d989bb2cf";
-    var weatherURL = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&APPID=" + weatherKey;
+    var weatherURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&APPID=" + weatherKey;
 
     $.ajax({
       url: weatherURL,
@@ -60,13 +60,14 @@ $(document).ready(function () {
 
       var latitude = response.coord.lat;
       var longitude = response.coord.lon;
+      var fahrenheit = (response.main.temp - 273.15) * 1.80 + 32;
+      var fRound = Math.round(fahrenheit)
 
-      var main = $("<h2>" + response.name + " Weather Details</h2>");
-      weatherInfo.append(main);
+      var weatherWidget = $("<h5 class='header'><i class='fas fa-sun'></i> " + response.name + " Weather Details</h5>" + "<div class='card'>"  + "<div class='card-content'><span class='card-title  grey-text text-darken-4'>Today's Forecast</span>" + "<h4 class='grey-text text-darken-4'>" + fRound + "°F</h4>" + "<br />" + "<p>" + response.weather[0].description + "</p></div>" + "</div");
+      weatherInfo.html(weatherWidget);
 
-      var description = $("<p> Summary " + response.weather[0].description + "</p>");
-      weatherInfo.append(description);
-
+      // var description = $("<p> Summary " + response.weather[0].description + "</p>");
+      // weatherInfo.html(description);
 
       generateTrailList(latitude, longitude);
     });
