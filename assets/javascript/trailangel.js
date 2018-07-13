@@ -1,10 +1,65 @@
 $(document).ready(function () {
+  getLatLongOnLoad();
 
   document.getElementById("trail-info").style.visibility = "hidden";
 
   function display() {
-      document.getElementById("trail-info").style.visibility = "visible";
+    document.getElementById("trail-info").style.visibility = "visible";
   }
+
+  function getLatLongOnLoad() {
+    var array = [80003, 68114, 75001, 10010, 90001, 88901, 84044, 64030]
+    var randomZipcode = array[Math.floor(Math.random()*array.length)];
+    console.log(randomZipcode);
+    var weatherKey = "3826993a4c01b00ab0b1726d989bb2cf";
+    var weatherURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + randomZipcode + ",us&APPID=" + weatherKey;
+
+    $.ajax({
+      url: weatherURL,
+      method: "GET"
+
+    }).then(function (response) {
+      var latitude = response.coord.lat;
+      var longitude = response.coord.lon;
+      featuredTrail(latitude, longitude);
+    }
+    )
+  };
+
+
+  function featuredTrail(latitude, longitude) {
+    var reiKey = "200310371-802af0835c009e8175dda821c7b48241";
+    var reiURL = "https://www.hikingproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + "&maxDistance=10&key=" + reiKey;
+
+    $.ajax({
+      url: reiURL,
+      method: "GET"
+    }).then(function (response) {
+      var featureTrailInfo = $("#trail-info");
+      var featureTrail = response.trails[Math.floor(Math.random() * response.trails.length)];;
+      console.log(response);
+      console.log(featureTrail);
+
+      var featureTrailDiv = $("<div class='card horizontal'>");
+
+      var featureTrailName = featureTrail.name
+      var test = $("<h5 class='header'>").append(featureTrailName);
+      featureTrailInfo.append(test);
+
+      var featureTrailInfo = featureTrail.summary
+      var featureTrailDifficulty = featuredTrail.difficulty
+      var featureTrailInformation = $("<div class='card-content col l8'><p class='summary-text'>").text(featureTrailInfo);
+
+      featureTrailDiv.append(featureTrailInformation);
+      featureTrailInformation.append("<p class='difficulty'>" + featureTrailDifficulty + "</p>");
+
+      var featureImage = featureTrail.imgSmallMed
+      featureImage = $("<div class='card-image col l4'>" + "<img" + " src=" + featureImage + "></div>");
+      document.getElementById("trail-info").style.visibility = "visible";
+
+    }
+    )
+  };
 
   function generateTrailList(latitude, longitude) {
     var reiKey = "200310371-802af0835c009e8175dda821c7b48241";
@@ -63,7 +118,7 @@ $(document).ready(function () {
       var fahrenheit = (response.main.temp - 273.15) * 1.80 + 32;
       var fRound = Math.round(fahrenheit)
 
-      var weatherWidget = $("<h5 class='header'><i class='fas fa-sun'></i> " + response.name + " Weather Details</h5>" + "<div class='card'>"  + "<div class='card-content'><span class='card-title  grey-text text-darken-4'>Today's Forecast</span>" + "<h4 class='grey-text text-darken-4'>" + fRound + "°F</h4>" + "<br />" + "<p>" + response.weather[0].description + "</p></div>" + "</div");
+      var weatherWidget = $("<h5 class='header'><i class='fas fa-sun'></i> " + response.name + " Weather Details</h5>" + "<div class='card'>" + "<div class='card-content'><span class='card-title  grey-text text-darken-4'>Today's Forecast</span>" + "<h4 class='grey-text text-darken-4'>" + fRound + "°F</h4>" + "<br />" + "<p>" + response.weather[0].description + "</p></div>" + "</div");
       weatherInfo.html(weatherWidget);
 
       // var description = $("<p> Summary " + response.weather[0].description + "</p>");
