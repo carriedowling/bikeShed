@@ -118,9 +118,19 @@ $(document).ready(function () {
       var latitude = response.coord.lat;
       var longitude = response.coord.lon;
       var fahrenheit = (response.main.temp - 273.15) * 1.80 + 32;
-      var fRound = Math.round(fahrenheit)
+      var highTemp = (response.main.temp_max - 273.15) * 1.80 + 32;
+      var lowTemp = (response.main.temp_min - 273.15) * 1.80 + 32;
+      var fRound = Math.round(fahrenheit);
+      var highRound = Math.round(highTemp);
+      var lowRound = Math.round(lowTemp);
 
-      var weatherWidget = $("<h5 class='header'><i class='fas fa-sun'></i> " + response.name + " Weather Details</h5>" + "<div class='card'>" + "<div class='card-content'><span class='card-title  grey-text text-darken-4'>Today's Forecast</span>" + "<h4 class='grey-text text-darken-4'>" + fRound + "°F</h4>" + "<br />" + "<p>" + response.weather[0].description + "</p></div>" + "</div");
+      var weatherWidget = $("<h5 class='header'><i class='fas fa-sun'></i> " + response.name + " Weather Details</h5>" + "<div class='card'>" + "<div class='card-content'><span class='card-title  grey-text text-darken-4'>Today's Forecast</span>" + "<h4 class='grey-text text-darken-4'>" + fRound + "°F</h4>" + "<br />"
+      + "<table>" + "<thead><tr>" + "<th>Description</th>" + "<th>High/Low</th>" + "<th>Wind</th>" + "<th>Humidity</th>" + "</tr></thead>"
+      + "<tbody><tr>" + "<td>" + response.weather[0].description + "</td>"
+      + "<td>" + highTemp + "°F / " + lowRound + "°F" + "</td>"
+      + "<td>" + response.wind.speed + " MPH" + "</td>"
+      + "<td>" + response.main.humidity + "%" + "</td>" + "</tr></tobdy></table></div>" + "</div");
+      
       weatherInfo.html(weatherWidget);
 
       // var description = $("<p> Summary " + response.weather[0].description + "</p>");
