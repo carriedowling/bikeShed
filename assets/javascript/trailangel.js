@@ -49,6 +49,7 @@ $(document).ready(function () {
     console.log(zipcode);
     var weatherKey = "3826993a4c01b00ab0b1726d989bb2cf";
     var weatherURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&APPID=" + weatherKey;
+    console.log(weatherURL);
 
     $.ajax({
       url: weatherURL,
