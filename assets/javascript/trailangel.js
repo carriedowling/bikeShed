@@ -4,6 +4,10 @@ $(document).ready(function () {
 
   document.getElementById("trail-info").style.visibility = "hidden";
 
+  $("#resetBtn").on("click", function ()  {
+    window.location.reload();
+  });
+
   function display() {
     document.getElementById("trail-info").style.visibility = "visible";
   }
@@ -42,21 +46,19 @@ $(document).ready(function () {
 
       var featureTrailDiv = $("<div class='card horizontal'>");
 
-      var featureTrailName = featureTrail.name
-      var test = $("<h5 class='header'>").append(featureTrailName);
+      var test = $("<h5 class='header'>Featured Trail <br><br></h5>").append(featureTrail.name);
       featureTrailInfo.append(test);
 
-      var featureTrailInfo = featureTrail.summary
-      var featureTrailDifficulty = featuredTrail.difficulty
-      var featureTrailInformation = $("<div class='card-content col l8'><p class='summary-text'>").text(featureTrailInfo);
-
+      var featureTrailInformation = $("<div class='card-content col l8'  id='new'><p class='summary-text'>").text(featureTrail.summary);
       featureTrailDiv.append(featureTrailInformation);
-      featureTrailInformation.append("<p class='difficulty'>" + featureTrailDifficulty + "</p>");
+      featureTrailInformation.append("<p class='difficulty'>" + featuredTrail.difficulty + "</p>");
 
       var featureImage = featureTrail.imgSmallMed
       featureImage = $("<div class='card-image col l4'>" + "<img" + " src=" + featureImage + "></div>");
-      document.getElementById("trail-info").style.visibility = "visible";
+      featureTrailDiv.append(featureImage);
 
+      featureTrailInfo.append(featureTrailDiv);
+      document.getElementById("trail-info").style.visibility = "visible";
     })
   };
 
