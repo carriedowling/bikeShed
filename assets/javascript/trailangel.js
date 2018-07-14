@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
   getLatLongOnLoad();
 
   document.getElementById("trail-info").style.visibility = "hidden";
@@ -9,7 +10,7 @@ $(document).ready(function () {
 
   function getLatLongOnLoad() {
     var array = [80003, 68114, 75001, 10010, 90001, 88901, 84044, 64030]
-    var randomZipcode = array[Math.floor(Math.random()*array.length)];
+    var randomZipcode = array[Math.floor(Math.random() * array.length)];
     console.log(randomZipcode);
     var weatherKey = "3826993a4c01b00ab0b1726d989bb2cf";
     var weatherURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + randomZipcode + ",us&APPID=" + weatherKey;
@@ -22,8 +23,7 @@ $(document).ready(function () {
       var latitude = response.coord.lat;
       var longitude = response.coord.lon;
       featuredTrail(latitude, longitude);
-    }
-    )
+    })
   };
 
 
@@ -57,8 +57,7 @@ $(document).ready(function () {
       featureImage = $("<div class='card-image col l4'>" + "<img" + " src=" + featureImage + "></div>");
       document.getElementById("trail-info").style.visibility = "visible";
 
-    }
-    )
+    })
   };
 
   function generateTrailList(latitude, longitude) {
@@ -134,5 +133,37 @@ $(document).ready(function () {
       location();
       display();
     }
+  });
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBzcyUbCKn2kB7h61IlYaGoPfPb_vUGxTw",
+    authDomain: "trailangel-47083.firebaseapp.com",
+    databaseURL: "https://trailangel-47083.firebaseio.com",
+    projectId: "trailangel-47083",
+    storageBucket: "trailangel-47083.appspot.com",
+    messagingSenderId: "1005396031636"
+  };
+
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+  $(".search").keyup("click", function (e) {
+    e.preventDefault();
+    if (e.which === 13) {
+      var dataZip = $(".search").val().substring(0, 5);
+      console.log(dataZip);
+
+      database.ref().push({
+        dataZip: dataZip,
+      })
+    }
+    database.ref().on("child_added", function (snapshot) {
+      console.log(dataZip);
+      dataZip = snapshot.val().dataZip;
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
   });
 });
