@@ -130,6 +130,7 @@ $(document).ready(function () {
       + "<td>" + highTemp + "°F / " + lowRound + "°F" + "</td>"
       + "<td>" + response.wind.speed + " MPH" + "</td>"
       + "<td>" + response.main.humidity + "%" + "</td>" + "</tr></tobdy></table></div>" + "</div");
+      
       weatherInfo.html(weatherWidget);
 
       // var description = $("<p> Summary " + response.weather[0].description + "</p>");
