@@ -10,8 +10,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -32,8 +31,10 @@
                 <div class="row" id="topbarsearch">
                   <div class="input-field col s6 s12">
                     <i class="material-icons prefix">search</i>
-                    <input type="number" placeholder="Find a Trail" class="search white-text">
-                    <button id="resetBtn" class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">close</i></button>
+                    <!-- <input type="number" placeholder="Find a Trail" class="search white-text">
+                    <button id="resetBtn" class="btn-floating btn-mini waves-effect waves-light blue">X</button> -->
+                    <input type="number" required class="search white-text search-box" placeholder="Find a Trail" />
+                		<button id="resetBtn" class="btn-floating btn-mini waves-effect waves-light blue lighten-2 close-icon" type="reset">X</button>
                   </div>
                 </div>
               </div>
@@ -48,8 +49,8 @@
               <div class="col s12">
                 <div class="row" id="topbarsearch">
                   <div class="input-field col s6 s12">
-                    <i class="material-icons prefix search mobileIcon">search</i>
-                    <input type="number" placeholder="Find a Trail" class="mobile-search light">
+                    <i class="material-icons prefix mobileIcon">search</i>
+                    <input type="number" class="mobile-search light search-box" placeholder="Find a Trail">
                   </div>
                 </div>
               </div>
@@ -92,10 +93,7 @@
           <h5 class="white-text">Links</h5>
           <ul>
             <li>
-              <a class="white-text" href="#">Home</a>
-            </li>
-            <li>
-              <a class="white-text" href="#">About</a>
+              <a class="white-text" href="index.html">Home</a>
             </li>
           </ul>
         </div>
@@ -114,11 +112,14 @@
   </footer>
 
   <!--JavaScript at end of body for optimized loading-->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script type="text/javascript" src="assets/javascript/trailangel.js"></script>
   <script type="text/javascript" src="assets/javascript/init.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
 </body>
 
 </html>
